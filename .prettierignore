@@ -1,0 +1,8 @@
+dist
+build
+bin
+.vscode-test
+_del
+*.vsix
+composer.json
+composer.lock

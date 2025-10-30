@@ -1,0 +1,25 @@
+{
+    "name": "josephus/sample-php-project",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Josephus\\SamplePhpProject\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Josephus Paye II",
+            "email": "j.paye96@gmail.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/JosephusPaye/pint"
+        }
+    ],
+    "require-dev": {
+        "laravel/pint": "dev-main"
+    }
+}

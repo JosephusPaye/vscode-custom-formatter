@@ -1,0 +1,11 @@
+{
+    "josephusCustomFormatters.formatters": [
+        {
+            "command": "vendor/bin/pint - --stdin-filename ${fileRelativeToWorkspace}",
+            "languages": [
+                "php"
+            ],
+            "disabled": false
+        }
+    ]
+}

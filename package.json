@@ -1,0 +1,137 @@
+{
+  "name": "josephus-custom-formatters",
+  "displayName": "Josephus' Custom Formatters",
+  "description": "Format code using custom formatting scripts defined in settings.",
+  "version": "0.1.0",
+  "publisher": "josephuspaye",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.45.0"
+  },
+  "categories": [
+    "Formatters"
+  ],
+  "activationEvents": [
+    "*"
+  ],
+  "main": "./dist/extension.js",
+  "capabilities": {
+    "documentFormattingProvider": "true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/josephuspaye/vscode-custom-formatters.git"
+  },
+  "bugs": {
+    "url": "https://github.com/josephuspaye/vscode-custom-formatters/issues"
+  },
+  "keywords": [
+    "formatter"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "Josephus' Custom Formatters",
+      "properties": {
+        "josephusCustomFormatters.formatters": {
+          "type": "array",
+          "description": "Array of custom formatters",
+          "default": [],
+          "items": {
+            "type": "object",
+            "description": "A single custom formatter.",
+            "properties": {
+              "command": {
+                "oneOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "properties": {
+                      "darwin": {
+                        "type": "string",
+                        "description": "macOS"
+                      },
+                      "linux": {
+                        "type": "string",
+                        "description": "Linux"
+                      },
+                      "win32": {
+                        "type": "string",
+                        "description": "Windows"
+                      },
+                      "aix": {
+                        "type": "string"
+                      },
+                      "freebsd": {
+                        "type": "string"
+                      },
+                      "openbsd": {
+                        "type": "string"
+                      },
+                      "sunos": {
+                        "type": "string"
+                      },
+                      "android": {
+                        "type": "string"
+                      },
+                      "*": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ],
+                "examples": [
+                  "vendor/bin/pint - --stdin-filename ${file}",
+                  {
+                    "win32": "vendor\\bin\\pint - --stdin-filename ${file}",
+                    "*": "vendor/bin/pint - --stdin-filename ${file}"
+                  }
+                ],
+                "description": "The shell command to run. Should accept the file's text through STDIN and output the formatted result through STDOUT. If an object is passed, the command matching the current platform or otherwise \"*\" is picked."
+              },
+              "disabled": {
+                "type": "boolean",
+                "default": false
+              },
+              "languages": {
+                "type": "array",
+                "description": "Array of VSCode language identifiers. See https://code.visualstudio.com/docs/languages/identifiers",
+                "items": {
+                  "type": "string",
+                  "minLength": 1,
+                  "examples": [
+                    "php"
+                  ]
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "command",
+              "languages"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "yarn run build",
+    "package": "vsce package",
+    "build": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "format": "prettier --write '**/*.ts'",
+    "format:check": "yarn prettier --check src/**/*.ts"
+  },
+  "devDependencies": {
+    "@types/node": "22.x",
+    "@types/vscode": "^1.45.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.3",
+    "@vscode/vsce": "^3.6.2"
+  }
+}
