@@ -1,7 +1,7 @@
 {
   "name": "josephus-custom-formatters",
   "displayName": "Josephus' Custom Formatters",
-  "description": "Format code using custom formatting scripts defined in settings.",
+  "description": "Format code in VS Code using custom formatting commands defined in settings",
   "version": "0.1.0",
   "publisher": "josephuspaye",
   "license": "MIT",
